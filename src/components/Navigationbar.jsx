@@ -12,7 +12,7 @@ function Navigationbar() {
     <>
         <Navbar key="md" bg="dark" variant="dark" expand="md" className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/">Navbar Offcanvas</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-"md"`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-"md"`}
@@ -45,6 +45,9 @@ function Navigationbar() {
                       Something else here
                     </NavDropdown.Item>
                   </NavDropdown>
+                  <Nav.Link as={Link} to='/contact'>
+                    Contact
+                  </Nav.Link>
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
