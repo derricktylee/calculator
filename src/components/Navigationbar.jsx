@@ -10,6 +10,11 @@ import { Link } from "react-router-dom";
 
 function Navigationbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showDropdown, setShowDropdow] = useState({
+    saving: false,
+    offers: false,
+  });
+
   function openMenu() {
     setMenuOpen(true);
   }
@@ -18,6 +23,20 @@ function Navigationbar() {
     setMenuOpen(false);
   }
 
+  function dropdownShow(e) {
+    setShowDropdow((prevState) => {
+      const temp = e.target.id.split(" ")[1];
+
+      return { ...prevState, [temp]: true };
+    });
+  }
+
+  function dropdownClose(e) {
+    setShowDropdow((prevState) => {
+      const temp = e.target.id.split(" ")[1];
+      return { ...prevState, [temp]: false };
+    });
+  }
   return (
     <>
       <Navbar key="md" bg="dark" variant="dark" expand="md" className="mb-3">
@@ -49,7 +68,10 @@ function Navigationbar() {
                 </Nav.Link>
                 <NavDropdown
                   title="Saving Accounts"
-                  id={`offcanvasNavbarDropdown-expand-"md"`}
+                  id={`offcanvasNavbarDropdown-expand-"md" saving`}
+                  show={showDropdown.saving}
+                  onMouseEnter={dropdownShow}
+                  onMouseLeave={dropdownClose}
                 >
                   <NavDropdown.Item
                     as={Link}
@@ -78,7 +100,10 @@ function Navigationbar() {
                 </Nav.Link>
                 <NavDropdown
                   title="Offers"
-                  id={`offcanvasNavbarDropdown-expand-"md"`}
+                  id={`offcanvasNavbarDropdown-expand-"md" offers`}
+                  show={showDropdown.offers}
+                  onMouseEnter={dropdownShow}
+                  onMouseLeave={dropdownClose}
                 >
                   <NavDropdown.Item
                     as={Link}
