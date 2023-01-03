@@ -9,3 +9,6 @@
     align-items: center;
 }
 
+.dropdown-menu.show{
+    margin-top: 0px !important;
+}

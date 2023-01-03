@@ -17,26 +17,37 @@ function Navigationbar() {
 
   function openMenu() {
     setMenuOpen(true);
+    setShowDropdow({
+      saving: false,
+      offers: false,
+    });
   }
 
   function closeMenu() {
     setMenuOpen(false);
+    setShowDropdow({
+      saving: false,
+      offers: false,
+    });
   }
 
   function dropdownShow(e) {
     setShowDropdow((prevState) => {
       const temp = e.target.id.split(" ")[1];
 
-      return { ...prevState, [temp]: true };
+      return window.innerWidth > 768 && { ...prevState, [temp]: true };
     });
   }
 
   function dropdownClose(e) {
-    setShowDropdow((prevState) => {
-      const temp = e.target.id.split(" ")[1];
-      return { ...prevState, [temp]: false };
-    });
+    setShowDropdow(
+      window.innerWidth > 768 && {
+        saving: false,
+        offers: false,
+      }
+    );
   }
+
   return (
     <>
       <Navbar key="md" bg="dark" variant="dark" expand="md" className="mb-3">
@@ -72,10 +83,11 @@ function Navigationbar() {
                   show={showDropdown.saving}
                   onMouseEnter={dropdownShow}
                   onMouseLeave={dropdownClose}
+                  style={{ marginTop: "0px" }}
                 >
                   <NavDropdown.Item
                     as={Link}
-                    to="/saving/regsaver"
+                    to="/saving/easyaccess"
                     onClick={closeMenu}
                   >
                     Easy-Access Account
@@ -104,6 +116,7 @@ function Navigationbar() {
                   show={showDropdown.offers}
                   onMouseEnter={dropdownShow}
                   onMouseLeave={dropdownClose}
+                  style={{ marginTop: "0px" }}
                 >
                   <NavDropdown.Item
                     as={Link}
