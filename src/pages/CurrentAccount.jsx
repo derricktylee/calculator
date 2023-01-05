@@ -4,41 +4,58 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import CardHeader from "react-bootstrap/esm/CardHeader";
 import Button from "react-bootstrap/Button";
-export default function SwitchOffers() {
+
+export default function CurrentAccount() {
   return (
     <div className="container">
-      <h3>Switch Offers</h3>
-      {data[0].switchdata.map((item) => {
-        const { id, bank, bonus, accountType, img, method, target, link } =
-          item;
+      <h3>Current Account</h3>
+      {data[1].currentAccountData.map((item) => {
+        const {
+          id,
+          bank,
+          interestRate,
+          limit,
+          timeframe,
+          accountType,
+          img,
+          requirement,
+          withdrawals,
+          link,
+        } = item;
         return (
           <Container key={id}>
             <Card style={{ width: "100%" }} className="mt-3 mb-2">
               <CardHeader as={"h5"}>{bank + " " + accountType}</CardHeader>
               <div className="row no-gutters h-100">
-                <div className="col bank-img-container py-2">
+                <div className="col bank-img-container py-2 px-4">
                   <img src={img} className="card-img bank-logo" />
                 </div>
                 <div className="col-md-10">
                   <Card.Body>
                     <Card.Text>
-                      <span style={{ fontWeight: "bold" }}>Switch bonus:</span>{" "}
-                      £{bonus}
+                      <span style={{ fontWeight: "bold" }}>Interest Rate</span>{" "}
+                      {interestRate}%
                     </Card.Text>
                     <Card.Text>
-                      <span style={{ fontWeight: "bold" }}>Account type:</span>{" "}
-                      {accountType}
+                      <span style={{ fontWeight: "bold" }}>Timeframe:</span>{" "}
+                      {timeframe}
+                    </Card.Text>
+                    <Card.Text>
+                      <span style={{ fontWeight: "bold" }}>Deposit Limit:</span>{" "}
+                      £{limit}
                     </Card.Text>
                     <Card.Text>
                       <span style={{ fontWeight: "bold" }}>
-                        How to get the bonus:
+                        Withdrawal Limit:
                       </span>{" "}
-                      {method}
+                      {withdrawals}
                     </Card.Text>
-                    <Card.Text>
-                      <span style={{ fontWeight: "bold" }}>Criteria:</span>{" "}
-                      {target}
-                    </Card.Text>
+                    {requirement && (
+                      <Card.Text>
+                        <span style={{ fontWeight: "bold" }}>Requirement:</span>{" "}
+                        {requirement}
+                      </Card.Text>
+                    )}
                     <Button
                       variant="secondary"
                       href={link}

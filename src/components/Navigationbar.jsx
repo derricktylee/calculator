@@ -87,10 +87,10 @@ function Navigationbar() {
                 >
                   <NavDropdown.Item
                     as={Link}
-                    to="/saving/easyaccess"
+                    to="/saving/currentaccount"
                     onClick={closeMenu}
                   >
-                    Easy-Access Account
+                    Current Account
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}

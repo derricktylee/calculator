@@ -5,7 +5,7 @@ import InterestCalculator from "./pages/InterestCalculator";
 import SwitchOffers from "./pages/SwitchOffers";
 import Contact from "./pages/Contact";
 import Saving from "./pages/Saving";
-import EasyAccess from "./pages/EasyAccess";
+import CurrentAccount from "./pages/CurrentAccount";
 import RegSaver from "./pages/RegSaver";
 import FixedSaving from "./pages/FixedSaving";
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/saving" element={<Saving />} />
           <Route path="/calculator" element={<InterestCalculator />} />
           <Route path="/switchoffers" element={<SwitchOffers />} />
-          <Route path="/saving/easyaccess" element={<EasyAccess />} />
+          <Route path="/saving/currentaccount" element={<CurrentAccount />} />
           <Route path="/saving/regsaver" element={<RegSaver />} />
           <Route path="/saving/fixed" element={<FixedSaving />} />
           <Route path="/contact" element={<Contact />} />
