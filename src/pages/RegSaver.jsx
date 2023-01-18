@@ -48,7 +48,7 @@ export default function RegSaver() {
                     </Card.Text>
                     <Card.Text>
                       <span style={{ fontWeight: "bold" }}>Deposit Limit:</span>{" "}
-                      £{limit} per month
+                      £{limit.min}-{limit.max} per month
                     </Card.Text>
                     <Card.Text>
                       <span style={{ fontWeight: "bold" }}>
